@@ -55,6 +55,15 @@ All three models displayed very similar performance, with RF and XGB slightly ah
 
 My main hope is that the next jump in model performance could be achieved by measuring teams' scores only on their last 10/20/30 games. Although a decent indicator of a player's quality, performance over a full season, and especially over the last 2/3/5 seasons is probably too long a period to make near-future predictions.
 
+## Table of models' performance
+
+| Model Name | Avg Accuracy | 1st train-test split | 2nd train-test split | 3rd train-test split |
+|----------|----------|----------|----------|----------|
+|   Random Forest  |   66.7% |   65.9%  |   67.1%  |   69.4%  |
+|   XGBoost  |   66.5%  |   65.9%  |   66.6%  |   70.7%  |
+|   Neural Network  |   66.4%  |   65.6%  |   66.6%  |   68.6%  |
+|   ODG rating + home-court advantage  |   66.2%  |   65.9%  |   66.8%  |   65.8%  |
+
 # Explanation of feature engineering:
 
 ## Elo Ratings
