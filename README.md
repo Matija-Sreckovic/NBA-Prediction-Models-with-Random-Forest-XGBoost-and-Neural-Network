@@ -98,9 +98,21 @@ A **score** is assigned to each player after each game he played in.
 
 We take in each player's GmSc and difference between OffRtg and DefRtg (henceforth "Rtg"). We compare them to all other scores of players in all of the last 5 years - for example, if each is 99th percentile, the player gets a coefficient of 0.99 for GmSc and Rtg.
 
-To get the player's *unweighted rating*, we set $\textup{rating}_{\textup{unweighted}} = 0.2 \times \textup{coeff}_{\textup{GmSc}} + 0.8 \times \textup{coeff}_{\textup{Rtg}}.$ The value $0.2$ was tuned.
+To get the player's *unweighted rating*, we set
 
-To get the player's *weighted rating* we multiply the unweighted rating by a **usage rate coefficient** (we get the player's USG% and assign a coefficient by comparing it to all other games in the last 5 years, similarly to how we obtain the Gmsc and Rtg coefficients) and **minutes_coefficient** (if a player played at least 35 minutes, the coefficient is 1). Precisely, $\textup{coeff}_{\textup{min}} = \min(1, 6.85 \times \frac{\textup{player's minutes played}}{\textup{total team minutes}}).$ In total, $$\textup{rating}_{\textup{weighted}} = \textup{coeff}_{\textup{USG%}} \times \textup{coeff}_{\textup{min}} \times (0.2 \times \textup{coeff}_{\textup{GmSc}} + 0.8 \times \textup{coeff}_{\textup{Rtg}}).$$
+$$
+\textup{unweighted rating} = 0.2 \times \textup{GmSc coefficient} + 0.8 \times \textup{Rtg coefficient}.
+$$
+
+The value $0.2$ was tuned.
+
+To get the player's *weighted rating* we multiply the unweighted rating by a **usage rate coefficient** (we get the player's USG% and assign a coefficient by comparing it to all other games in the last 5 years, similarly to how we obtain the Gmsc and Rtg coefficients) and **minutes_coefficient** (if a player played at least 35 minutes, the coefficient is 1). Precisely, 
+
+$\textup{minutes coefficient} = 6.85 \times \frac{\textup{player's minutes played}}{\textup{total team minutes}}.$ 
+
+In total, 
+
+$$\textup{weighted rating} = \textup{USG% coefficient} \times \textup{minutes coefficient} \times (0.2 \times \textup{GmSc coefficient} + 0.8 \times \textup{Rtg coefficient}).$$
 
 #### Players' Long-Term Ratings and a Team's Rating before a Game
 
