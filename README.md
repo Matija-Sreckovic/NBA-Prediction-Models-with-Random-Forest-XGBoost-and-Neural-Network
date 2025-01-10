@@ -1,12 +1,16 @@
 To run the notebook, simply download the "games_almost_ready_for_training.csv" file and run the cells of "Random Forest, XGBoost, Neural Network with CV, PCA.ipynb" in order, until the last markdown cell. You can get a different cross-validation train-test split using the "get_cross_val_indices" function. If you want the one I used, run the cell with the following code:
-training_indices = [0,0,0]
-testing_indices = [0,0,0]
+```python
+training_indices = [0, 0, 0]
+testing_indices = [0, 0, 0]
+
 training_indices[0] = list(range(11503))
 testing_indices[0] = list(range(11503, 14136))
+
 training_indices[1] = list(range(12187))
 testing_indices[1] = list(range(12188, 14525))
+
 training_indices[2] = list(range(14136))
-testing_indices[2] = list(range(14136, 14525)).
+testing_indices[2] = list(range(14136, 14525))
 
 # Comments on Model Performance
 
