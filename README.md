@@ -55,9 +55,9 @@ All three models displayed very similar performance, with RF and XGB slightly ah
 
 My main hope is that the next jump in model performance could be achieved by measuring teams' scores only on their last 10/20/30 games. Although a decent indicator of a player's quality, performance over a full season, and especially over the last 2/3/5 seasons is probably too long a period to make near-future predictions.
 
-## Explanation of feature engineering:
+# Explanation of feature engineering:
 
-### Elo Ratings
+## Elo Ratings
 
 These are margin-adjusted Elo ratings of each team as columns of games_new. For this, we start from the first NBA game ever played in 1947! But we only care about the 2013-14 season and onwards.
 
@@ -76,11 +76,11 @@ $$E_{new} = E_{old} + P \times G \times (result - e_r),$$ where:
 
 I found this formula at https://www.aussportstipping.com/sports/nba/elo_ratings/. I tried to tune the $1/3$ parameter but this was more or less the best value.
 
-### Adding the OffRtg-DefRtg-Gamescore Ratings to games_new
+## Adding the OffRtg-DefRtg-Gamescore Ratings to games_new
 
 In this section, we add the columns 'rating_home' and 'rating_away' to games_new, by more or less copying the code from https://github.com/Matija-Sreckovic/NBA-Prediciton-Model.
 
-#### GameScore, Off/DefRtg
+### GameScore, Off/DefRtg
 
 I'll try to explain how the rating system works here. It uses two catch-all advanced stats of a box score: a player's **GameScore** (**GmSc**) and the difference between his **OffRtg** and **DefRtg**. The formula for **GmSc** is:
 
@@ -92,7 +92,7 @@ On the other hand, **OffRtg** and **DefRtg** for a *team* are the number of poin
 
 **DefRtg:** "The core of the Defensive Rating calculation is the concept of the individual Defensive Stop. Stops take into account the instances of a player ending an opposing possession that are tracked in the boxscore (blocks, steals, and defensive rebounds), in addition to an estimate for the number of forced turnovers and forced misses by the player which aren't captured by steals and blocks."
 
-#### The Rating System Itself - 1 Game
+### The Rating System Itself - 1 Game
 
 A **score** is assigned to each player after each game he played in.
 
@@ -114,7 +114,7 @@ In total,
 
 $$\textup{weighted rating} = \textup{USG% coefficient} \times \textup{minutes coefficient} \times (0.2 \times \textup{GmSc coefficient} + 0.8 \times \textup{Rtg coefficient}).$$
 
-#### Players' Long-Term Ratings and a Team's Rating before a Game
+### Players' Long-Term Ratings and a Team's Rating before a Game
 
 The score that we compute for a player after each game is added to his rating sum *this season* and his *5-year rating sum*. Both are divided by the number of games played to get the *average rating this season* and *average 5-year rating*. There are also *last season's average ratings* and *average ratings from 2 seasons ago*.
 
