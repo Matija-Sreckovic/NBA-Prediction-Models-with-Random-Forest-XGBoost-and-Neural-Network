@@ -76,9 +76,7 @@ $$E_{new} = E_{old} + P \times G \times (result - e_r),$$ where:
 
 I found this formula at https://www.aussportstipping.com/sports/nba/elo_ratings/. I tried to tune the $1/3$ parameter but this was more or less the best value.
 
-## Adding the OffRtg-DefRtg-Gamescore Ratings to games_new
-
-In this section, we add the columns 'rating_home' and 'rating_away' to games_new, by more or less copying the code from https://github.com/Matija-Sreckovic/NBA-Prediciton-Model.
+## OffRtg-DefRtg-Gamescore ("ODG") Ratings
 
 ### GameScore, Off/DefRtg
 
